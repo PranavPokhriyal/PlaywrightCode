@@ -1,0 +1,1 @@
+❌ Failed to take screenshot: ENOENT: no such file or directory, open 'D:\Testing Projects\Testing Automation-Playwright\Playwright-POM-UCR\Screenshots\span[contains(text(), 'Policy Number:')]\strong\span-1745741019265.png'
