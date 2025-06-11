@@ -34,7 +34,7 @@ class YMIMCAU{
         this.Ridingyroption="//vlocity_ins-omniscript-select[@data-omni-key='primaryRiderExp']//input[@class='nds-input nds-listbox__option-text_entity']"
         this.Selectridingyr= "//vlocity_ins-omniscript-select[@data-omni-key='primaryRiderExp']//ul[@class='nds-dropdown-container listbox nds-listbox nds-listbox_vertical']//li[2]"
         this.ClickDOBfield= "//vlocity_ins-omniscript-date[@data-omni-key='DOB']//input[@class='nds-input nds-input_mask']"
-        this.SelectDOByr="//select[@class='nds-select' and @data-id='select-01']"
+        this.SelectDOByr="//select[@class='nds-select' and @data-id='select-01']";
         this.SelectDOBmonthdate= "//td[@data-id='dayId4']//span[@aria-label='Sun Apr 04 1993']"
         this.ValidLicense= "//vlocity_ins-omniscript-radio[@data-omni-key='HasDrivingLicence']//span[text()='YES']"
         this.Licensefield= "//vlocity_ins-omniscript-select[@data-omni-key='licenceHistory']//input[@class='nds-input nds-listbox__option-text_entity']"

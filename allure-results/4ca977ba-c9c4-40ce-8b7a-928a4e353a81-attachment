@@ -1,0 +1,143 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: YMIMCAU-COMP
+- Location: D:\Testing Projects\Testing Automation-Playwright\Playwright-POM-UCR\Test Script\Dealer Portal\Dealer-YMIMCAU.spec.js:17:1
+
+# Error details
+
+```
+Error: page.waitForSelector: Target page, context or browser has been closed
+Call log:
+  - waiting for locator('//vlocity_ins-flex-action[@data-style-id=\'state0element0block_element1_child\']//span[text()=\'CREATE A QUOTE\']') to be visible
+
+    at DealerMCCOMP.safeClick (D:\Testing Projects\Testing Automation-Playwright\Playwright-POM-UCR\Pages\BasePageActions.js:15:29)
+    at DealerMCCOMP.DealerYMIMCAUCOMPPolicy (D:\Testing Projects\Testing Automation-Playwright\Playwright-POM-UCR\Sources\DealerPortal\DealerMCCOMP.js:17:24)
+    at D:\Testing Projects\Testing Automation-Playwright\Playwright-POM-UCR\Test Script\Dealer Portal\Dealer-YMIMCAU.spec.js:23:6
+```
+
+# Test source
+
+```ts
+   1 | const fs = require('fs');
+   2 | const path = require('path');
+   3 | const { Page, Download } = require('@playwright/test');
+   4 |
+   5 | const { savePolicyNumber } = require('../Policyno Data/PolicyStorage'); // Adjust the path as per your structure
+   6 |
+   7 |
+   8 | class BasePage {
+   9 |     constructor(page) {
+   10 |         this.page = page;
+   11 |     }
+   12 |
+   13 |     async safeClick(selector, timeout = 90000, actionName = '') {
+   14 |         try {
+>  15 |             await this.page.waitForSelector(selector, { timeout });
+      |                             ^ Error: page.waitForSelector: Target page, context or browser has been closed
+   16 |             await this.page.click(selector);
+   17 |             console.log(`✅ Clicked: ${actionName || selector}`);
+   18 |         } catch (error) {
+   19 |             console.error(`❌ Failed to click: ${actionName || selector}`);
+   20 |             await this.takeScreenshot(`error-click-${actionName || 'unknown'}`);
+   21 |             throw error;
+   22 |         }
+   23 |     }
+   24 |
+   25 |     async safeFill(selector, value, timeout = 90000, fieldName = '') {
+   26 |         try {
+   27 |             await this.page.waitForSelector(selector, { timeout });
+   28 |             await this.page.fill(selector, value);
+   29 |             console.log(`✅ Filled: ${fieldName || selector} with "${value}"`);
+   30 |         } catch (error) {
+   31 |             console.error(`❌ Failed to fill: ${fieldName || selector}`);
+   32 |             await this.takeScreenshot(`error-fill-${fieldName || 'unknown'}`);
+   33 |             throw error;
+   34 |         }
+   35 |     }
+   36 |
+   37 |     async safeEvaluate(script, actionName = 'Scroll') {
+   38 |         try {
+   39 |             await this.page.evaluate(script);
+   40 |             console.log(`✅ Evaluated: ${actionName}`);
+   41 |         } catch (error) {
+   42 |             console.error(`❌ Failed to evaluate: ${actionName}`);
+   43 |             await this.takeScreenshot(`error-eval-${actionName}`);
+   44 |             throw error;
+   45 |         }
+   46 |     }
+   47 |
+   48 |     async takeScreenshot(name) {
+   49 |         const screenshotDir = path.join('Screenshots');
+   50 |         if (!fs.existsSync(screenshotDir)) {
+   51 |             fs.mkdirSync(screenshotDir);
+   52 |         }
+   53 |         const screenshotPath = path.join(screenshotDir, `${name}-${Date.now()}.png`);
+   54 |         try {
+   55 |             await this.page.screenshot({ path: screenshotPath, fullPage: true });
+   56 |             console.log(`🖼️ Screenshot saved: ${screenshotPath}`);
+   57 |         } catch (screenshotError) {
+   58 |             console.error(`❌ Failed to take screenshot: ${screenshotError.message}`);
+   59 |         }
+   60 |     }
+   61 |
+   62 |     async safeFrameFill(outerFrameSelector, arg2, arg3, arg4, arg5, arg6) {
+   63 |         try {
+   64 |             let input, timeout = 6000, fieldName = '';
+   65 |     
+   66 |             if (typeof arg5 === 'number') {
+   67 |                 // innerFrame version
+   68 |                 const innerFrameSelector = arg2;
+   69 |                 const inputSelector = arg3;
+   70 |                 const value = arg4;
+   71 |                 timeout = arg5;
+   72 |                 fieldName = arg6 || inputSelector;
+   73 |     
+   74 |                 await this.page.waitForSelector(outerFrameSelector, { timeout });
+   75 |                 const outerFrame = this.page.frameLocator(outerFrameSelector);
+   76 |                 const innerFrame = outerFrame.frameLocator(innerFrameSelector);
+   77 |                 input = innerFrame.locator(inputSelector);
+   78 |                 await input.waitFor({ state: 'visible', timeout });
+   79 |                 await input.fill(value);
+   80 |     
+   81 |             } else {
+   82 |                 // no innerFrame version
+   83 |                 const inputSelector = arg2;
+   84 |                 const value = arg3;
+   85 |                 timeout = arg4 || 6000;
+   86 |                 fieldName = arg5 || inputSelector;
+   87 |     
+   88 |                 await this.page.waitForSelector(outerFrameSelector, { timeout });
+   89 |                 const outerFrame = this.page.frameLocator(outerFrameSelector);
+   90 |                 input = outerFrame.locator(inputSelector);
+   91 |                 await input.waitFor({ state: 'visible', timeout });
+   92 |                 await input.fill(value);
+   93 |             }
+   94 |     
+   95 |             console.log(`✅ Filled iframe field: ${fieldName}`);
+   96 |         } catch (error) {
+   97 |             console.error(`❌ Failed to fill iframe field: ${arg6 || arg5 || arg2}`);
+   98 |             await this.takeScreenshot(`error-iframe-fill-${arg6 || arg5 || arg2}`);
+   99 |             throw error;
+  100 |         }
+  101 |     }
+  102 |     
+  103 |     
+  104 |     
+  105 |     async safeFrameClick(iframeSelector, clickSelector, actionName = '') {
+  106 |         try {
+  107 |             const frame = this.page.frameLocator(iframeSelector);
+  108 |             await frame.locator(clickSelector).click();
+  109 |             console.log(`✅ Clicked ${actionName} in iframe`);
+  110 |         } catch (error) {
+  111 |             console.error(`❌ Failed to click ${actionName} in iframe`);
+  112 |             await this.takeScreenshot(`error-frameclick-${actionName}`);
+  113 |             throw error;
+  114 |         }
+  115 |     }
+```

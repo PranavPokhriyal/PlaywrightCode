@@ -1,0 +1,2 @@
+❌ Failed to click: Create Quote Button
+❌ Failed to take screenshot: page.screenshot: Target page, context or browser has been closed

@@ -1,0 +1,112 @@
+✅ Clicked: Navigation Menu
+✅ Clicked: Home Menu
+✅ Clicked: YMI Australia Quote
+✅ Clicked: Quick Quote Button
+✅ Evaluated: Scroll to Quick Quote Section
+✅ Clicked: Get Quick Quote
+✅ URL verification passed: https://www.yamaha-motor.com.au/buying/finance-and-insurance/finance-and-insurance-pages/yamaha-motor-insurance
+✅ URL verification passed: https://www.yamaha-motor.com.au/privacy/policies/ymi-australia-privacy-policy
+✅ Clicked: Next Button
+✅ Clicked: Road Registered - No
+✅ Filled: Registration Number with "NPU84"
+✅ Evaluated: Scroll Down
+✅ Clicked: State Dropdown
+✅ Clicked: Select NSW
+✅ Clicked: Search Button
+✅ Clicked: Short Term - No
+✅ Clicked: MC Usage Dropdown
+✅ Clicked: Select Private Usage
+✅ Clicked: MC Storage Dropdown
+✅ Clicked: Select Garaged (Home)
+✅ Filled: Postcode with "2590"
+✅ Clicked: Suburb Input
+✅ Clicked: Select BETHUNGRA
+✅ Clicked: Primary Rider - Yes
+✅ Clicked: Riding Year Dropdown
+✅ Clicked: Select Riding Year
+✅ Clicked: DOB Field
+✅ Clicked: Select DOB Date
+✅ Clicked: Valid License - Yes
+✅ Clicked: License Field Dropdown
+✅ Clicked: Select License History
+✅ Clicked: At Fault Claim - No
+✅ Clicked: Get Quick Quote Button
+✅ Text verification passed for Basic Excess Value check
+✅ Text verification passed for Coverage Details
+🔎 Opened in new tab: https://yamahamotorsaustralia--ymidev2.sandbox.lightning.force.com/resource/YMI_OffRoad_Insurance_PDS
+✅ PDF View verified: https://yamahamotorsaustralia--ymidev2.sandbox.lightning.force.com/resource/YMI_OffRoad_Insurance_PDS
+🔎 Opened in new tab: https://yamahamotorsaustralia--ymidev2.sandbox.lightning.force.com/resource/YMIAUS_FSG_v3
+✅ PDF View verified: https://yamahamotorsaustralia--ymidev2.sandbox.lightning.force.com/resource/YMIAUS_FSG_v3
+🔎 Opened in new tab: https://yamahamotorsaustralia--ymidev2.sandbox.lightning.force.com/resource/YMI_TMD_OR_AUGUST_2022
+✅ PDF View verified: https://yamahamotorsaustralia--ymidev2.sandbox.lightning.force.com/resource/YMI_TMD_OR_AUGUST_2022
+✅ Clicked: Click on Save Email quote
+✅ Clicked: Click on Title
+✅ Clicked: Select Title
+✅ Filled: First Name with "Disha"
+✅ Filled: Last Name with "Sarnas"
+✅ Filled: Email Address with "DishaTwo062@gmail.com"
+✅ Clicked: Get Quick Quote
+✅ Clicked: View Quote PDF
+✅ PDF Download verified: YMIA Motorcycle Insurance Quote.pdf
+✅ Evaluated: 3000
+✅ Clicked: Send Email
+✅ Clicked: Continue After Quote
+✅ Evaluated: 30000
+✅ Filled: Mobile Number with "9897949596"
+✅ Filled: Landline Number with "9895949891"
+✅ Clicked: Get Quick Quote
+✅ Clicked: Final Continue
+🖼️ Screenshot saved: Screenshots\strong[text()='QUOTE NUMBER']-1745740845333.png
+✅ Clicked: FirstRegisterowner
+✅ Clicked: Click on Calendar
+✅ Clicked: Select Purchase Year
+✅ Clicked: Select Purchase Date
+✅ Filled: Click Purchase Price Label with "5445"
+✅ Clicked: Pre-existing Damage - NO
+✅ Clicked: KM Range Dropdown
+✅ Clicked: Select KM Range 4001-8000
+✅ Clicked: Motorcycle Financed - NO
+✅ Clicked: Non-standard Modification - NO
+✅ Clicked: Motorcycle Accessories - NO
+✅ Clicked: Click Next
+✅ Evaluated: Scroll to Quick Quote Section
+✅ Clicked: Click on Enter Address
+✅ Filled: Enter Street with "D-145, Desong Street"
+✅ Filled: Enter Apartment with "New Ansal Heights"
+✅ Filled: Enter City with "COOTAMUNDRA"
+✅ Clicked: Click Statefield
+State field is clicked
+✅ Clicked: Click Statefield
+✅ Clicked: Select state
+✅ Filled: Enter Postcode with "2590"
+✅ Clicked: Same Storage address
+✅ Clicked: Ridingcourse-NO
+✅ Clicked: Drivinghistory-NO
+✅ Clicked: Criminalconviction-NO
+✅ Clicked: Insurancehistory-NO
+✅ Clicked: Next-button-click
+✅ Evaluated: Scroll to Quick Quote Section
+✅ Clicked: Proceed to premium-Click
+✅ Evaluated: Scroll to Quick Quote Section
+✅ Filled: Enter Promo code with "MAASSOCIATION"
+✅ Clicked: Apply Promo code
+✅ Clicked: Save Email Quote
+✅ Evaluated: Scroll to Quick Quote Section
+✅ Evaluated: Scroll to Quick Quote Section
+✅ Clicked: Proceed to payment-click
+✅ Evaluated: Scroll to Quick Quote Section
+✅ Clicked: Click-card
+✅ Clicked Click on Visa card in iframe
+✅ Clicked //input[@name='card.number'] in iframe
+Page Clicked
+✅ Filled iframe field: Card Number
+✅ Clicked 30000 in iframe
+✅ Filled iframe field: Card Expiry
+✅ Filled iframe field: Given Name
+✅ Filled iframe field: Surname
+✅ Filled iframe field: CVV
+✅ Clicked 30000 in iframe
+✅ Clicked: Submit
+✅ Retrieved text for Policy Number: PMA-00006651
+✅ Policy saved: [YMIMCAU-OFFROAD] PMA-00006651
+✅ Clicked: Continue to Policy

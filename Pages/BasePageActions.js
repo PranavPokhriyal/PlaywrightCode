@@ -279,12 +279,38 @@ async getTextContent(selector, timeout = 5000, fieldName = '') {
       await this.takeScreenshot(`error-get-text-${fieldName || 'unknown'}`);
       throw error;
     }
-
-
-
-
-    
 }
+async selectDateFromPicker(day, month, year) {
+    const dateXPath = `//td[@data-type='date' and contains(@aria-label, '${month} ${day} ${year}')]`;
+
+    try {
+        await this.safeClick(this.selectors.MC_DOB, 10000, 'Open Date Picker');
+        await this.safeClick(dateXPath, 30000, `Select DOB: ${day}-${month}-${year}`);
+    } catch (error) {
+        console.error(`❌ Failed to select date: ${day}-${month}-${year}`);
+        await this.takeScreenshot(`error-select-date-${day}-${month}-${year}`);
+        throw error;
+    }
 }
+
+async safeSelectOption(selector, optionLabel, timeout = 30000, actionDescription = '') {
+    try {
+      // Wait for the select element to be visible
+      await this.page.waitForSelector(selector, { timeout });
+      
+      // Select the option by label
+      await this.page.selectOption(selector, { label: optionLabel });
+      
+      console.log(`✅ ${actionDescription || `Selected option '${optionLabel}' in '${selector}'`}`);
+    } catch (error) {
+      console.error(`❌ Failed to select option '${optionLabel}' in '${selector}':`, error);
+      await this.takeScreenshot(`error-select-option-${optionLabel}`);
+      throw error;
+    }
+  }
+  
+
+}
+
 
 module.exports = BasePage;
