@@ -1,0 +1,41 @@
+✅ Clicked: Insurance Tab
+✅ Clicked: Click Quote Button
+✅ Clicked: Click GET QUICK QUOTE
+✅ Evaluated: Scroll to Quick Quote Section
+✅ Clicked: Click on Quick Quote Image
+✅ Clicked: Click NEXT Button
+✅ Clicked: Select YES for Road Registered
+✅ Clicked: Select COMPREHENSIVE Coverage
+✅ Filled: Enter Register Number with "NPU84"
+✅ Clicked: Select State
+✅ Clicked: Click on NSW State
+✅ Clicked: Click Search Button
+✅ Clicked: Click Usage Dropdown
+✅ Clicked: Select Usage as Private
+✅ Clicked: Click Storage Dropdown
+✅ Clicked: Select Storage as Garaged (Home)
+✅ Filled: Enter Postcode with "2590"
+✅ Clicked: Enter Suburb
+✅ Clicked: Select Suburb Option
+✅ Clicked: Select YES for Primary Rider
+✅ Clicked: Click Riding Years Dropdown
+✅ Clicked: Select Riding Experience Year
+✅ Clicked: Enter Date of Birth
+✅ Select year 1993 in DOB picker
+✅ Clicked: Select DOB Month & Date
+✅ Clicked: Select YES for Driving Licence
+✅ Clicked: Click Licence History Dropdown
+✅ Clicked: Select Licence field value
+✅ Clicked: Select NO for Claim in Last 3 Years
+✅ Filled: Enter Promo Code with "MAASSOCIATION"
+✅ Clicked: Click Apply Promo Code
+✅ Clicked: Click Get Quick Quote Button
+✅ Evaluated: Scroll to Quick Quote Section
+✅ Text verification passed for Basic Excess Value check
+✅ Text verification passed for Coverage Details
+🔎 Opened in new tab: chrome-error://chromewebdata/
+🖼️ Screenshot saved: Screenshots\pdf-action-error-View Product PDF-1749796984553.png
+🔎 Opened in new tab: chrome-error://chromewebdata/
+🖼️ Screenshot saved: Screenshots\pdf-action-error-View Financial Guide-1749796985414.png
+🔎 Opened in new tab: chrome-error://chromewebdata/
+🖼️ Screenshot saved: Screenshots\pdf-action-error-Target Market determenation-1749796986171.png

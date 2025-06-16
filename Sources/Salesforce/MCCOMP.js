@@ -158,8 +158,8 @@ class MCCOMP extends BasePageActions {
             await this.safeClick(this.selectors.SaveEmailQuote, 30000, 'Save Email Quote');
             await this.page.waitForTimeout(8000);
             await this.safeEvaluate(this.selectors.scrollaction, 'Scroll to Quick Quote Section');
-            //await this.safeClick(this.selectors.ClickonSendEmail, 30000, 'Click on Send Email');
-            //await this.page.waitForTimeout(6000);
+            await this.safeClick(this.selectors.ClickonSendEmail, 30000, 'Click on Send Email');
+            await this.page.waitForTimeout(6000);
 
            
 

@@ -1,0 +1,15 @@
+❌ Failed to verify PDF action: View Product PDF
+Reason: page.goto: net::ERR_ABORTED at chrome-error://chromewebdata/
+Call log:
+  - navigating to "chrome-error://chromewebdata/", waiting until "load"
+
+❌ Failed to verify PDF action: View Financial Guide
+Reason: page.goto: net::ERR_ABORTED at chrome-error://chromewebdata/
+Call log:
+  - navigating to "chrome-error://chromewebdata/", waiting until "load"
+
+❌ Failed to verify PDF action: Target Market determenation
+Reason: page.goto: net::ERR_ABORTED at chrome-error://chromewebdata/
+Call log:
+  - navigating to "chrome-error://chromewebdata/", waiting until "load"
+

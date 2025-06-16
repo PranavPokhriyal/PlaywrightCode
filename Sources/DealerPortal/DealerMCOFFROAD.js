@@ -3,13 +3,13 @@ const BasePageActions = require("../../Pages/BasePageActions")
 const testData = require('../../Test Data/Test Data');  
 const { savePolicyNumber } = require('../../Policyno Data/PolicyStorage');
 
-class DealerMCCOMP extends BasePageActions {
+class DealerMCOFFROAD extends BasePageActions {
     constructor(page) {
         super(page);
         this.selectors = new DEALERYMIMCAU(page);  // This should instantiate the DEALERYMIMCAU class
     }
 
-    async DealerYMIMCAUCOMPPolicy() {
+    async DealerYMIMCAUOFFROADPolicy() {
     
         // Now use this.selectors to access locators
             await this.safeClick(this.selectors.SelectInsurance, 30000, 'Insurance Tab');
@@ -21,8 +21,8 @@ class DealerMCCOMP extends BasePageActions {
            
             await this.safeClick(this.selectors.Getquickquote, 80000, 'Click on Quick Quote Image');
             await this.safeClick(this.selectors.ClickNextbutton, 80000, 'Click NEXT Button');
-            await this.safeClick(this.selectors.MCroadregisterYES, 30000, 'Select YES for Road Registered');
-            await this.safeClick(this.selectors.MC_COVERAGE_REQD, 30000, 'Select COMPREHENSIVE Coverage');
+            await this.safeClick(this.selectors.MC_ROAD_REGISTER_NO, 30000, 'Select NO for Road Registered');
+            await this.safeClick(this.selectors.MC_COVERAGE_TPFT, 30000, 'Select Third Party Theft Coverage');
             await this.safeFill(this.selectors.MC_REGISTER_NUMBER, 'NPU84', 30000, 'Enter Register Number');
             await this.safeClick(this.selectors.MC_STATE, 30000, 'Select State');
             await this.safeClick(this.selectors.ClickonNSW, 30000, 'Click on NSW State');
@@ -201,4 +201,4 @@ class DealerMCCOMP extends BasePageActions {
     }
 }
 
-module.exports = DealerMCCOMP;  
+module.exports = DealerMCOFFROAD;  

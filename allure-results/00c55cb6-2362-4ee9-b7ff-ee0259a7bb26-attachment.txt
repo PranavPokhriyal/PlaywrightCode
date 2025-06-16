@@ -1,0 +1,49 @@
+Navigation error: page.waitForNavigation: Target page, context or browser has been closed
+=========================== logs ===========================
+waiting for navigation until "load"
+  navigated to "https://yamahamotorsaustralia--ymidev2.sandbox.lightning.force.com/one/one.app"
+  "domcontentloaded" event fired
+============================================================
+    at BasicConfig.login (D:\Testing Projects\Testing Automation-Playwright\Playwright-POM-UCR\BaseConfig.js:36:29)
+    at D:\Testing Projects\Testing Automation-Playwright\Playwright-POM-UCR\Test Script\Salesforce\YMIMCAU.spec.js:13:5 {
+  [Symbol(step)]: {
+    stepId: 'pw:api@13',
+    location: {
+      file: 'D:\\Testing Projects\\Testing Automation-Playwright\\Playwright-POM-UCR\\BaseConfig.js',
+      line: 36,
+      column: 29,
+      function: 'BasicConfig.login'
+    },
+    category: 'pw:api',
+    title: 'page.waitForNavigation',
+    apiName: 'page.waitForNavigation',
+    params: { info: [Object] },
+    boxedStack: undefined,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [TestInfoImpl],
+      _stepId: 'pw:api@13'
+    },
+    complete: [Function: complete],
+    endWallTime: 1749797016821,
+    error: {
+      message: 'Error: page.waitForNavigation: Target page, context or browser has been closed\n' +
+        '=========================== logs ===========================\n' +
+        'waiting for navigation until "load"\n' +
+        '  navigated to "https://yamahamotorsaustralia--ymidev2.sandbox.lightning.force.com/one/one.app"\n' +
+        '  "domcontentloaded" event fired\n' +
+        '============================================================',
+      stack: 'Error: page.waitForNavigation: Target page, context or browser has been closed\n' +
+        '=========================== logs ===========================\n' +
+        'waiting for navigation until "load"\n' +
+        '  navigated to "https://yamahamotorsaustralia--ymidev2.sandbox.lightning.force.com/one/one.app"\n' +
+        '  "domcontentloaded" event fired\n' +
+        '============================================================\n' +
+        '    at BasicConfig.login (D:\\Testing Projects\\Testing Automation-Playwright\\Playwright-POM-UCR\\BaseConfig.js:36:29)\n' +
+        '    at D:\\Testing Projects\\Testing Automation-Playwright\\Playwright-POM-UCR\\Test Script\\Salesforce\\YMIMCAU.spec.js:13:5',
+      cause: undefined
+    }
+  }
+}

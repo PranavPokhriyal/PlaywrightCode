@@ -1,6 +1,8 @@
 const { test, expect, chromium, page } = require("@playwright/test");
 const BasicConfig = require("../../BaseConfig");
 const DealerMCCOMP = require("../../Sources/DealerPortal/DealerMCCOMP");
+const DealerMCTPFT = require("../../Sources/DealerPortal/DealerMCTPFT");
+const DealerMCTPO = require("../../Sources/DealerPortal/DealerMCTPO.js");
 
 test.beforeEach(async ({ page }) => {
     // Instantiate the BasicConfig class and specify the system
@@ -21,6 +23,45 @@ test("YMIMCAU-COMP", async function({ page }) {
 
      // Calling createquote method
      await dealermccomp.DealerYMIMCAUCOMPPolicy();
+    
+    // Add a pause if needed, but ideally this should be replaced with assertions
+    await page.pause();
+
+});
+
+test("YMIMCAU-TPFT", async function({ page }) {
+
+     // Navigate to the homepage (after login)
+     const dealermccomp = new DealerMCTPFT(page)
+
+     // Calling createquote method
+     await dealermccomp.DealerYMIMCAUTPFTPolicy();
+    
+    // Add a pause if needed, but ideally this should be replaced with assertions
+    await page.pause();
+
+});
+
+test("YMIMCAU-TPO", async function({ page }) {
+
+     // Navigate to the homepage (after login)
+     const dealermccomp = new DealerMCTPO(page)
+
+     // Calling createquote method
+     await dealermccomp.DealerYMIMCAUTPOPolicy();
+    
+    // Add a pause if needed, but ideally this should be replaced with assertions
+    await page.pause();
+
+});
+
+test("YMIMCAU-OFFROAD", async function({ page }) {
+
+     // Navigate to the homepage (after login)
+     const dealermccomp = new DealerMCTPO(page)
+
+     // Calling createquote method
+     await dealermccomp.DealerYMIMCAUTPOPolicy();
     
     // Add a pause if needed, but ideally this should be replaced with assertions
     await page.pause();

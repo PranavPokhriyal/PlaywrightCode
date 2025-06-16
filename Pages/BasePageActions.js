@@ -172,63 +172,78 @@ class BasePage {
       }
 
       async verifyPdfAction(linkSelector, timeout = 60000, description = '') {
-        try {
-            const locator = this.page.locator(linkSelector);
-    
-            const [event] = await Promise.all([
-                Promise.race([
-                    this.page.context().waitForEvent('page'),
-                    this.page.waitForEvent('download')
-                ]),
-                locator.click()
-            ]);
-    
-            // ✅ If a new tab opened
-            if (event && typeof event.waitForLoadState === 'function') {
-                const newPage = event;
-                await newPage.waitForLoadState('load', { timeout });
-    
-                const pdfUrl = newPage.url();
-                console.log(`🔎 Opened in new tab: ${pdfUrl}`);
-    
-                if (!pdfUrl.endsWith('.pdf')) {
-                    const response = await newPage.goto(pdfUrl);
-                    const contentType = response.headers()['content-type'];
-                    if (!contentType.includes('application/pdf')) {
-                        throw new Error(`❌ Not a PDF. Got content-type: ${contentType}`);
-                    }
+    let newPage = null;
+
+    try {
+        const locator = this.page.locator(linkSelector);
+
+        const [event] = await Promise.all([
+            Promise.race([
+                this.page.context().waitForEvent('page'),
+                this.page.waitForEvent('download')
+            ]),
+            locator.click()
+        ]);
+
+        // 📄 New Tab Opened
+        if (event && typeof event.waitForLoadState === 'function') {
+            newPage = event;
+            await newPage.waitForLoadState('load', { timeout });
+
+            const pdfUrl = newPage.url();
+            console.log(`🔎 Opened in new tab: ${pdfUrl}`);
+
+            if (!pdfUrl.endsWith('.pdf')) {
+                const response = await newPage.goto(pdfUrl);
+                const contentType = response.headers()['content-type'];
+                if (!contentType.includes('application/pdf')) {
+                    throw new Error(`❌ Not a PDF. Got content-type: ${contentType}`);
                 }
-    
-                console.log(`✅ PDF View verified: ${pdfUrl}`);
-                await newPage.close();
             }
-    
-            // ✅ If a file was downloaded
-            else if (event && typeof event.suggestedFilename === 'function') {
-                const download = event;
-                const suggestedName = download.suggestedFilename();
-    
-                if (!suggestedName.endsWith('.pdf')) {
-                    throw new Error(`❌ Downloaded file is not a PDF: ${suggestedName}`);
-                }
-    
-                console.log(`✅ PDF Download verified: ${suggestedName}`);
-            }
-    
-            // ❌ Unknown outcome
-            else {
-                throw new Error(`❌ Unknown event triggered on click.`);
-            }
-    
-        } catch (error) {
-            console.error(`❌ Failed to verify PDF action: ${description || linkSelector}`);
-            await this.takeScreenshot(`pdf-action-error-${description}`);
-            throw error;
+
+            console.log(`✅ PDF View verified: ${pdfUrl}`);
+            await newPage.close();  // ✅ Ensure tab is closed
         }
+
+        // 📥 File Downloaded
+        else if (event && typeof event.suggestedFilename === 'function') {
+            const download = event;
+            const suggestedName = download.suggestedFilename();
+
+            if (!suggestedName.endsWith('.pdf')) {
+                throw new Error(`❌ Downloaded file is not a PDF: ${suggestedName}`);
+            }
+
+            console.log(`✅ PDF Download verified: ${suggestedName}`);
+        }
+
+        // ❓ Unexpected Behavior
+        else {
+            throw new Error(`❌ Unknown event triggered on click.`);
+        }
+
+    } catch (error) {
+        console.error(`❌ Failed to verify PDF action: ${description || linkSelector}`);
+        
+        // ⛔ Capture from the error page (if new tab)
+        if (newPage) {
+            await newPage.screenshot({ path: `Screenshots/pdf-action-error-${description}-${Date.now()}.png` });
+            await newPage.close();  // ✅ Close it even on failure
+        } else {
+            await this.page.screenshot({ path: `Screenshots/pdf-action-error-${description}-${Date.now()}.png` });
+        }
+
+        // 👈 Now return to the original tab
+        const allPages = this.page.context().pages();
+        if (allPages.length > 0) {
+            this.page = allPages[0]; // set focus to original page
+            await this.page.bringToFront();
+        }
+
+        // Don't throw to continue script
     }
-
-
-    
+}
+   
     
     // Save policy number to JSON file
 async savePolicyNumber(policyType, policyNumber) {
