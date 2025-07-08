@@ -1,9 +1,9 @@
 const { test, expect, chromium, page } = require("@playwright/test");
 const BasicConfig = require("../../BaseConfig"); 
-const MCCOMP = require("../../Sources/Salesforce/MCCOMP");
-const MCTPFT = require("../../Sources/Salesforce/MCTPFT");
-const MCTPO = require("../../Sources/Salesforce/MCTPO");
-const MCOFFROAD = require("../../Sources/Salesforce/MCOFFROAD");
+const MCCOMP = require("../../Sources/Salesforce/MCAUCOMP");
+const MCTPFT = require("../../Sources/Salesforce/MCAUTPFT");
+const MCTPO = require("../../Sources/Salesforce/MCAUTPO");
+const MCOFFROAD = require("../../Sources/Salesforce/MCAUOFFROAD");
 
 test.beforeEach(async ({ page }) => {
     // Instantiate the BasicConfig class
